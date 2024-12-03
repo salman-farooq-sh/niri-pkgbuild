@@ -1,3 +1,8 @@
+# Maintainer: cosmo <aur@dawnson.is>
+# Maintainer: FreeFull <jazz2rulez@gmail.com>
+# Contributor: Julius Michaelis <gitter@liftm.de.de>
+# Contributor: Nebulosa  <nebulosa2007-at-yandex-dot-ru>
+ 
 ## The following variable can be customized at build time.
 ## Use env or export to change at your wish
 ##
@@ -9,7 +14,7 @@
 : ${_sccache:=}
 
 pkgname=niri-salman
-pkgver=0.1.8.r60.g268591f
+pkgver=541a2e7dd300dae1673afb8134b34e37b4cfcfb7
 pkgrel=1
 pkgdesc="Scrollable-tiling Wayland compositor"
 arch=(x86_64 aarch64)
@@ -36,7 +41,7 @@ b2sums=('SKIP')
 
 pkgver() {
   cd ${pkgname%-salman}
-  git describe --long --tags --abbrev=7 | sed 's/\([^-]*-g\)/r\1/;s/-/./g;s/^v//'
+  git log -n 1 --pretty=format:"%H"
 }
 
 prepare() {
